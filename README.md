@@ -96,6 +96,7 @@ First of all, add the Authenticator of your choice which will have to handle the
 ```
 
 The **JwtIssuer** Valve supports the following configuration attributes:
+
 | Attribute     | Description | Default Value  | Mandatory   |
 | ------------- |-------------|----------------|-------------|
 | className     | MUST be set to *org.prolane.tomcat.tomsso.JwtIssuer*  | N/A | yes
@@ -115,6 +116,7 @@ Please mind the JwtAuthenticator MUST be the only Authenticator Valve present. D
 ```
 
 The **JWT Authenticator** Valve supports the following configuration attributes:
+
 | Attribute     | Description | Default Value  | Mandatory   |
 | ------------- |-------------|----------------|-------------|
 | className     | MUST be set to *org.prolane.tomcat.tomsso.JwtAuthenticator*  | N/A | yes
