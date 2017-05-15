@@ -126,7 +126,7 @@ The **JWT Authenticator** Valve supports the following configuration attributes:
 | jwtIssuer           | Identifies the principal that issued the JWT. The jwtIssuer value should match with the value configured at the party who issued the JWT. If not, validation of the JWT will fail. | tomsso-default| no
 
 ## <a name="jwtcreation"></a>Creating the JWT outside TomSSO
-TO BE DOCUMENTED. COMMING SOON!
+TO BE DOCUMENTED. COMING SOON!
 
 ## <a name="ltpa"></a>Integration with Websphere Application Server (WAS) by leveraging LTPA
-TO BE DEVELOPED AND DOCUMENTED. COMMING SOON!
+TO BE DEVELOPED AND DOCUMENTED. COMING SOON!
