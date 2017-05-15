@@ -2,7 +2,7 @@
 
 TomSSO is an extension (3rd party lib) for Apache Tomcat. 
 
-Out of the box Tomcat does have some SSO functionality which you can read about [here](https://tomcat.apache.org/tomcat-7.0-doc/config/host.html#Single_Sign_On). However, this only works for apps deployed on the same server (i.e. same JVM). With TomSSO it is possible to have multiple servers/jvm's in your environment, let a user authenticate at just on of these servers, and then this user will automatically be authenticated as soon as he hits one of the other servers. These servers could even be located at different hosting providers, therefore 'Distributed SSO for Tomcat'.
+Out of the box Tomcat does have some SSO functionality which you can read about [here](https://tomcat.apache.org/tomcat-7.0-doc/config/host.html#Single_Sign_On). However, this only works for apps deployed on the same server (i.e. same JVM). With TomSSO it is possible to have multiple servers/jvm's in your environment, let a user authenticate at just one of these servers, and then this user will automatically be authenticated as soon as he hits one of the other servers. These servers could even be located at different hosting providers, therefore 'Distributed SSO for Tomcat'.
 
 ## Table of Contents
 * [How does it work](#howdoesitwork)
