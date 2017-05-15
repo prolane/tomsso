@@ -31,7 +31,7 @@ import org.apache.catalina.valves.ValveBase;
 public class JwtIssuer extends ValveBase {
 	private String cookieName = "tomsso";
 	private String privateKeyFileLoc = "privkey.der";
-	private String jwtIssuer = "issuer-name";
+	private String jwtIssuer = "tomsso-default";
 	private int secondsBeforeExpiry = 86400; 
 	
 	private static final Logger logger = Logger.getLogger(JwtAuthenticator.class.getName());

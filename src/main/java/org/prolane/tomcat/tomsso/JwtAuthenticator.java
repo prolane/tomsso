@@ -28,26 +28,21 @@ public class JwtAuthenticator extends AuthenticatorBase{
 	private static final String AUTH_TYPE = "JWT_CUSTOM_AUTH";
 	
 	private String cookieName = "tomsso";
-	private String publicKeyFileLoc = "pubkey.der";
-	private String jwtIssuer = "issuer-name";
-	private int secondsBeforeExpiry = 86400;
+	private String publicKeyFileLoc = "publickey.der";
+	private String jwtIssuer = "tomsso-default";
 	
 	
 	public void setCookieName(String cookieName) {
         this.cookieName = cookieName;
     }
 	
-	public void setPrivateKeyFileLoc(String publicKeyFileLoc) {
+	public void setPublicKeyFileLoc(String publicKeyFileLoc) {
         this.publicKeyFileLoc = publicKeyFileLoc;
     }
 	
 	public void setJwtIssuer(String jwtIssuer) {
         this.jwtIssuer = jwtIssuer;
     }
-	
-	public void setSecondsBeforeExpiry(int secondsBeforeExpiry) {
-		this.secondsBeforeExpiry = secondsBeforeExpiry;
-	}
 	
 	
 	@Override
@@ -74,7 +69,7 @@ public class JwtAuthenticator extends AuthenticatorBase{
 		if (jwt != null && jwt != "") {
 			// If verification is successful, the subject from the JWT is returned. 
 			// The JTW subject is the equivalent of the Principal Name
-			String principalName = Util.getSubjectFromJwt(jwt, jwtIssuer, secondsBeforeExpiry, publicKeyFileLoc);
+			String principalName = Util.getSubjectFromJwt(jwt, jwtIssuer, publicKeyFileLoc);
 			if (principalName != null) {
 				// Create an authenticated user (Principal)
 				Principal principal = context.getRealm().authenticate(principalName);

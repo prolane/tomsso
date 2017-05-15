@@ -37,7 +37,7 @@ public final class Util {
 	private static final Logger logger = Logger.getLogger(Util.class.getName());
 	
 	// Method for verifying JWT and returning the subject
-	public static String getSubjectFromJwt(String token, String issuer, int secondsBeforeExpiry, String publicKeyFileLoc) {
+	public static String getSubjectFromJwt(String token, String issuer, String publicKeyFileLoc) {
 		File publicKeyFile = new File(publicKeyFileLoc);
 		
 		// Read the public key (DER file) from filesystem
@@ -78,12 +78,13 @@ public final class Util {
             Algorithm algorithm = Algorithm.RSA256(rsaPublicKey);
             JWTVerifier verifier = JWT.require(algorithm)
                 .withIssuer(issuer)
-                .acceptLeeway(secondsBeforeExpiry)
                 .build();
             jwt = verifier.verify(token);
         } catch (JWTVerificationException e){
-        	logger.log(Level.WARNING, 	"The provided JWT could not be validated. Possibly the JWT signature " +
-        								"does not match the provided public key or the issuer does not match.");
+        	logger.log(Level.WARNING, 	"The provided JWT could not be validated, possibly because one of these causes:" + System.lineSeparator() + 
+        								"1. The JWT signature does not match with the provided public key." + System.lineSeparator() + 
+        								"2. The issuer of the JWT does not match the configured jwtIssuer." + System.lineSeparator() + 
+        								"3. The expiration time of the JWT has passed and therefore the JWT will not be accepted for processing.");
         }
         
         // Return principal from JWT
@@ -97,7 +98,6 @@ public final class Util {
         }
         
         // If not successful, return null
-        logger.log(Level.WARNING, "JWT verification was not successful!");
 		return null;
 	} // End of 'getSubjectFromJwt' method
 	
